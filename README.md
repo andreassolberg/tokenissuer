@@ -14,3 +14,8 @@ Test with:
 	NODE_ENV=development npm start
 
 
+Get an token:
+
+	clear; curl -i http://localhost:3000/api/
+
+	
