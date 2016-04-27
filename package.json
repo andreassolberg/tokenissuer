@@ -1,0 +1,27 @@
+{
+  "name": "ti",
+  "version": "1.0.0",
+  "description": "Token Issuer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "keywords": [
+    "token",
+    "jwt",
+    "authentication",
+    "authorization",
+    "dataporten"
+  ],
+  "author": "Andreas Åkre Solberg <andreas.solberg@uninett.no>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "config": "^1.20.1",
+    "express": "^4.13.4",
+    "extend": "^3.0.0",
+    "feideconnectapi": "^1.0.6",
+    "jsonwebtoken": "^6.1.0"
+  }
+}
