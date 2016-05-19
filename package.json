@@ -21,7 +21,7 @@
     "config": "^1.20.1",
     "express": "^4.13.4",
     "extend": "^3.0.0",
-    "feideconnectapi": "^1.0.6",
+    "dataportenapi": "*",
     "jsonwebtoken": "^6.1.0"
   }
 }

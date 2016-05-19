@@ -14,8 +14,20 @@ Test with:
 	NODE_ENV=development npm start
 
 
+Environment variables
+
+
+	NODE_ENV=development
+	NODE_ENV=production
+	PORT=2234 
+	JWT_SECRET=blah 
+	DATAPORTEN_KEY=123 
+
+
 Get an token:
 
 	clear; curl -i http://localhost:3000/api/
+
+
 
 	
