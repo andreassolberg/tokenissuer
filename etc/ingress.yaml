@@ -1,0 +1,17 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: andreassolberg-ingress
+spec:
+  tls:
+  - secretName: tls
+  backend:
+    serviceName: dataporten-tokenissuer
+    servicePort: 3000
+  rules:
+  - host: ti.andreas.labs.uninett.no
+    http:
+      paths:
+      - backend:
+          serviceName: dataporten-tokenissuer
+          servicePort: 3000

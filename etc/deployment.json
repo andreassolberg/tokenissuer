@@ -1,0 +1,64 @@
+{
+  "apiVersion": "extensions/v1beta1",
+  "kind": "Deployment",
+  "metadata": {
+    "name": "dataporten-tokenissuer"
+  },
+  "spec": {
+    "replicas": 2,
+    "template": {
+      "metadata": {
+        "labels": {
+          "app": "dataporten-tokenissuer"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "dataporten-tokenissuer",
+            "image": "eu.gcr.io/turnkey-cocoa-720/dataporten-tokenissuer:1.0.8",
+            "resources": {
+              "requests": {
+                "cpu": "10m"
+              },
+              "limits": {
+                "cpu": "100m"
+              }
+            },
+            "env": [
+              {
+                "name": "NODE_ENV",
+                "value": "production"
+              },
+              {
+                "name": "JWT_SECRET",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "dataporten-tokenissuer-secrets",
+                    "key": "sharedsecret"
+                  }
+                }
+              },
+              {
+                "name": "DATAPORTEN_KEY",
+                "valueFrom": {
+                  "secretKeyRef": {
+                    "name": "dataporten-tokenissuer-secrets",
+                    "key": "dataporten"
+                  }
+                }
+              }
+            ],
+            "imagePullPolicy": "Always",
+            "ports": [
+              {
+                "containerPort": 3000
+              }
+            ]
+          }
+        ],
+        "restartPolicy": "Always"
+      }
+    }
+  }
+}
