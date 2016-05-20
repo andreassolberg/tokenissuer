@@ -5,13 +5,11 @@ var
 	bodyParser = require('body-parser'),
 	config = require('config');
 
-
+var bunyanRequest = require('bunyan-request');
 var DataportenAPI = require('dataportenapi').DataportenAPI;
 var app		= express();
-var env 	= process.argv[2] || process.env.NODE_ENV || 'production';
 
 var API 	= require('./lib/TokenIssuerAPI').TokenIssuerAPI;
-
 
 var fc = new DataportenAPI({
     "password": config.get('dataporten.key')
@@ -19,16 +17,17 @@ var fc = new DataportenAPI({
 
 // console.log("Dataporten key", config.get('dataporten.key'));
 
-
-
 app.set('json spaces', 2);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-var A = new API({
-    "sharedSecret": config.get('sharedSecret')
+var A = new API(config);
+var requestLogger = bunyanRequest({
+	logger: A.log,
+	headerName: 'x-request-id'
 });
+
 
 var fakeMiddleware = function(req, res, next) {
 	req.headers.authorization = 'Basic ' + (new Buffer("dataporten:" + config.get('dataporten.key')).toString('base64'));
@@ -38,12 +37,24 @@ var fakeMiddleware = function(req, res, next) {
 	next();
 };
 
-if (env === 'development') {
-	console.log("Running in development mode with fake authentication middleware...")
-	app.use('/api', fc.cors(), fakeMiddleware, fc.setup(), fc.policy({"requireUser": true}), A.getRoute());	
+console.log("ENVIRONEMNT VARIABELES");
+console.log(process.env);
+
+console.log("Config fakeMiddleware", config.get('fakeMiddleware'));
+// console.log(config.get('.'));
+
+
+if (config.get('fakeMiddleware')) {
+	console.log("Running in development mode with fake authentication middleware...");
+	app.use('/api', fc.cors(), fakeMiddleware, fc.setup(), requestLogger, fc.policy({"requireUser": true}), A.getRoute());	
 } else {
-	app.use('/api', fc.cors(), fc.setup(), fc.policy({"requireUser": true}), A.getRoute());	
+	app.use('/api', fc.cors(), fc.setup(), requestLogger, fc.policy({"requireUser": true}), A.getRoute());	
 }
+
+
+app.get('/', function(req, res) {
+	res.send('OK!');
+});
 
 
 var port = config.get('http.port');

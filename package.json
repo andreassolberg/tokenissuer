@@ -18,10 +18,12 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "bunyan": "^1.8.1",
+    "bunyan-request": "^1.2.0",
     "config": "^1.20.1",
+    "dataportenapi": "~0.1",
     "express": "^4.13.4",
     "extend": "^3.0.0",
-    "dataportenapi": "*",
     "jsonwebtoken": "^6.1.0"
   }
 }
