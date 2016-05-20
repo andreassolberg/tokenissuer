@@ -2,5 +2,15 @@
 	"version": 1,
 	"http": {
 		"port": 3000
-	}
+	},
+	"logging": {
+		"level": "error"
+	},
+	"jwt": {
+		"expiresIn": "2h",
+		"audience": true,
+		"groups": true,
+		"accessToken": true
+	},
+	"fakeMiddleware": false
 }

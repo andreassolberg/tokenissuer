@@ -2,7 +2,9 @@
 	"dataporten": {
 		"key": "DATAPORTEN_KEY"
 	},
-	"sharedSecret": "JWT_SECRET",
+	"jwt": {
+		"sharedSecret": "JWT_SECRET"
+	},
 	"http": {
 		"port": "PORT"
 	}
