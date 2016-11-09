@@ -1,6 +1,12 @@
 {
 	"dataporten": {
-		"key": "30d63d9b-3574-4832-be37-0c93121fca21"
+		"key": "fe97d98b-2605-4817-afcd-28a0fb319439"
 	},
-	"sharedSecret": "blah"
+	"logging": {
+		"level": "debug"
+	},
+	"jwt": {
+		"sharedSecret": "63e6f4a3-9b7e-4d85-be22-17836c95e553"
+	},
+	"fakeMiddleware": true
 }

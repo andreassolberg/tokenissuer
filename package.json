@@ -21,9 +21,10 @@
     "bunyan": "^1.8.1",
     "bunyan-request": "^1.2.0",
     "config": "^1.20.1",
-    "dataportenapi": "~0.1",
+    "dataportenapi": "~0.2",
     "express": "^4.13.4",
     "extend": "^3.0.0",
-    "jsonwebtoken": "^6.1.0"
+    "jsonwebtoken": "^6.1.0",
+    "request": "^2.78.0"
   }
 }

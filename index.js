@@ -1,6 +1,6 @@
 "use strict";
 
-var 
+var
 	express    = require('express'),
 	bodyParser = require('body-parser'),
 	config = require('config');
@@ -34,6 +34,7 @@ var fakeMiddleware = function(req, res, next) {
 	req.headers['x-dataporten-userid'] = '76a7a061-3c55-430d-8ee0-6f82ec42501f';
 	req.headers['x-dataporten-userid-sec'] = 'feide:andreas@uninett.no,feide:andreas2@uninett.no';
 	req.headers['x-dataporten-clientid'] = '610cbba7-3985-45ae-bc9f-0db0e36f71ad';
+	req.headers['x-dataporten-token'] = 'xxx';
 	next();
 };
 
@@ -46,9 +47,9 @@ console.log("Config fakeMiddleware", config.get('fakeMiddleware'));
 
 if (config.get('fakeMiddleware')) {
 	console.log("Running in development mode with fake authentication middleware...");
-	app.use('/api', fc.cors(), fakeMiddleware, fc.setup(), requestLogger, fc.policy({"requireUser": true}), A.getRoute());	
+	app.use('/api', fc.cors(), fakeMiddleware, fc.setup(), requestLogger, fc.policy({"requireUser": true}), A.getRoute());
 } else {
-	app.use('/api', fc.cors(), fc.setup(), requestLogger, fc.policy({"requireUser": true}), A.getRoute());	
+	app.use('/api', fc.cors(), fc.setup(), requestLogger, fc.policy({"requireUser": true}), A.getRoute());
 }
 
 
