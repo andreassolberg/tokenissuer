@@ -15,3 +15,9 @@ spec:
       - backend:
           serviceName: dataporten-tokenissuer
           servicePort: 3000
+  - host: demo-api.andreas.labs.uninett.no
+    http:
+      paths:
+      - backend:
+          serviceName: dataporten-demoapi
+          servicePort: 3000

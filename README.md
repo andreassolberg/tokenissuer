@@ -30,4 +30,9 @@ Get an token:
 
 
 
-	
+
+## Deploy on kubernetes
+
+	kubectl create -f etc/secrets.yaml
+	kubectl create -f etc/deployment.json 
+	kubectl create -f etc/service.json
