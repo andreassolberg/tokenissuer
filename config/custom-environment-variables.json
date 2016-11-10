@@ -5,7 +5,8 @@
 	"jwt": {
 		"sharedSecret": "JWT_SECRET",
 		"privateKey": "JWT_PRIVATE_KEY",
-		"privateKeyFile": "JWT_PRIVATE_KEY_FILE"
+		"privateKeyFile": "JWT_PRIVATE_KEY_FILE",
+		"publicKeyFile": "JWT_PUBLIC_KEY_FILE"
 	},
 	"http": {
 		"port": "PORT"

@@ -16,6 +16,8 @@ Test with:
 
 	JWT_PRIVATE_KEY_FILE=/Users/andreas/wc/fc/ti/var/private.pem NODE_ENV=development npm start
 
+	JWT_PUBLIC_KEY_FILE=/Users/andreas/wc/fc/ti/var/public.pem JWT_PRIVATE_KEY_FILE=/Users/andreas/wc/fc/ti/var/private.pem NODE_ENV=development npm start | bunyan -L
+
 
 Environment variables
 
