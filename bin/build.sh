@@ -1,6 +1,6 @@
 #! /bin/bash
 
-VERSION="1.1.6"
+VERSION="1.2.0"
 IMAGE="eu.gcr.io/turnkey-cocoa-720/dataporten-tokenissuer:$VERSION"
 
 

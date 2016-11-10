@@ -16,7 +16,7 @@
         "containers": [
           {
             "name": "dataporten-tokenissuer",
-            "image": "eu.gcr.io/turnkey-cocoa-720/dataporten-tokenissuer:1.1.6",
+            "image": "eu.gcr.io/turnkey-cocoa-720/dataporten-tokenissuer:1.2.0",
             "resources": {
               "requests": {
                 "cpu": "10m"
@@ -40,6 +40,14 @@
                 }
               },
               {
+                "name": "JWT_PRIVATE_KEY_FILE",
+                "value": "/etc/secrets/private.pem"
+              },
+              {
+                "name": "JWT_PUBLIC_KEY_FILE",
+                "value": "/etc/secrets/public.pem"
+              },
+              {
                 "name": "DATAPORTEN_KEY",
                 "valueFrom": {
                   "secretKeyRef": {
@@ -54,10 +62,21 @@
               {
                 "containerPort": 3000
               }
-            ]
+            ],
+            "volumeMounts": [{
+  						"name": "dataporten-tokenissuer-secrets",
+  						"mountPath": "/etc/secrets",
+  						"readOnly": true
+  					}]
           }
         ],
-        "restartPolicy": "Always"
+        "restartPolicy": "Always",
+        "volumes": [{
+					"name": "dataporten-tokenissuer-secrets",
+					"secret": {
+						"secretName": "dataporten-tokenissuer-secrets"
+					}
+				}]
       }
     }
   }
