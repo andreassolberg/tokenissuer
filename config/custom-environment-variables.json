@@ -3,7 +3,9 @@
 		"key": "DATAPORTEN_KEY"
 	},
 	"jwt": {
-		"sharedSecret": "JWT_SECRET"
+		"sharedSecret": "JWT_SECRET",
+		"privateKey": "JWT_PRIVATE_KEY",
+		"privateKeyFile": "JWT_PRIVATE_KEY_FILE"
 	},
 	"http": {
 		"port": "PORT"

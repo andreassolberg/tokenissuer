@@ -6,7 +6,8 @@
 		"level": "debug"
 	},
 	"jwt": {
-		"sharedSecret": "63e6f4a3-9b7e-4d85-be22-17836c95e553"
+		"sharedSecret": "63e6f4a3-9b7e-4d85-be22-17836c95e553",
+		"privateKey": ""
 	},
 	"fakeMiddleware": true
 }

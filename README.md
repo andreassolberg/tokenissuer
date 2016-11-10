@@ -11,18 +11,21 @@ Add `config/default.json`:
 
 Test with:
 
-	NODE_ENV=development npm start
+
+
+
+	JWT_PRIVATE_KEY_FILE=/Users/andreas/wc/fc/ti/var/private.pem NODE_ENV=development npm start
 
 
 Environment variables
 
-
-	NODE_ENV=development
-	NODE_ENV=production
-	PORT=2234 
-	JWT_SECRET=blah 
-	DATAPORTEN_KEY=123 
-
+```
+NODE_ENV=development
+NODE_ENV=production
+PORT=2234
+JWT_SECRET=blah
+DATAPORTEN_KEY=123
+```
 
 Get an token:
 
@@ -33,6 +36,15 @@ Get an token:
 
 ## Deploy on kubernetes
 
-	kubectl create -f etc/secrets.yaml
-	kubectl create -f etc/deployment.json 
-	kubectl create -f etc/service.json
+```
+kubectl create -f etc/secrets.yaml
+kubectl create -f etc/deployment.json
+kubectl create -f etc/service.json
+```
+
+# Generate keypair
+
+```
+openssl genrsa -out private.pem 1024
+openssl rsa -in private.pem -pubout > public.pem
+```
