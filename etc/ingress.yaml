@@ -21,3 +21,9 @@ spec:
       - backend:
           serviceName: dataporten-demoapi
           servicePort: 3000
+  - host: k8.andreas.labs.uninett.no
+    http:
+      paths:
+      - backend:
+          serviceName: k8authclient
+          servicePort: 3000

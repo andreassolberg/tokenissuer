@@ -40,9 +40,7 @@ var fakeMiddleware = function(req, res, next) {
 
 console.log("ENVIRONEMNT VARIABELES");
 console.log(process.env);
-
 console.log("Config fakeMiddleware", config.get('fakeMiddleware'));
-// console.log(config.get('.'));
 
 
 if (config.get('fakeMiddleware')) {

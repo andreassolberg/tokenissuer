@@ -5,7 +5,7 @@
     "name": "dataporten-tokenissuer"
   },
   "spec": {
-    "replicas": 2,
+    "replicas": 1,
     "template": {
       "metadata": {
         "labels": {
@@ -16,7 +16,7 @@
         "containers": [
           {
             "name": "dataporten-tokenissuer",
-            "image": "eu.gcr.io/turnkey-cocoa-720/dataporten-tokenissuer:1.0.8",
+            "image": "eu.gcr.io/turnkey-cocoa-720/dataporten-tokenissuer:1.1.6",
             "resources": {
               "requests": {
                 "cpu": "10m"
