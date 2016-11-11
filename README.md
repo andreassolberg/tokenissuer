@@ -34,7 +34,11 @@ Get an token:
 	clear; curl -i http://localhost:3000/api/
 
 
+Test token:
 
+```
+clear; JWT_PUBLIC_KEY_FILE=/Users/andreas/wc/fc/ti/var/public.pem JWT_PRIVATE_KEY_FILE=/Users/andreas/wc/fc/ti/var/private.pem NODE_ENV=development node test-token | bunyan -L
+```
 
 ## Deploy on kubernetes
 

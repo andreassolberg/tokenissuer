@@ -10,7 +10,9 @@
 		"expiresIn": "2h",
 		"audience": true,
 		"groups": true,
-		"accessToken": true
+		"accessToken": true,
+		"issuer": "http://ti.andreas.labs.uninett.no/",
+		"kid": "eff741c3-e06f-47e3-a73a-cd1bd82b905f"
 	},
 	"fakeMiddleware": false
 }

@@ -25,6 +25,7 @@
     "express": "^4.13.4",
     "extend": "^3.0.0",
     "jsonwebtoken": "^6.1.0",
+    "pem-jwk": "^1.5.1",
     "request": "^2.78.0"
   }
 }

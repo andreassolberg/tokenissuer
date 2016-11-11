@@ -53,8 +53,17 @@ if (config.get('fakeMiddleware')) {
 
 app.get('/', function(req, res) {
 	res.send('OK!');
-});
-
+})
+app.get('/.well-known/openid-configuration', (req, res) => {
+	res.send(A.getOIConfig())
+})
+app.get('/openid/jwks', (req, res) => {
+	var jwk = A.getJWKS()
+	var d = {
+		"keys": [jwk]
+	}
+	res.send(d)
+})
 
 var port = config.get('http.port');
 
